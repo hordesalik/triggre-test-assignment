@@ -1,0 +1,137 @@
+body {
+    margin: 0;
+    padding: 0;
+
+    --status-color-default: rgb(240, 240, 240);
+    --status-color-loading: rgb(210, 210, 255);
+    --status-color-initializing: rgb(255, 255, 210);
+    --status-color-error: rgb(255, 210, 210);
+    --status-color-success: rgb(210, 255, 210);
+
+    --shadow-color-default: rgb(164 164 164);
+    --shadow-color-selected: rgb(255, 106, 0);
+}
+
+.root {
+    width: 400px;
+}
+
+.root,
+.root * {
+    --shadow-color: var(--shadow-color-default);
+    padding: 5px;
+    margin: 5px;
+    box-shadow: inset 0px 0px 5px 3px var(--shadow-color);
+    background-color: white;
+}
+
+.root.selected,
+.root *.selected {
+    --shadow-color: var(--shadow-color-selected);
+}
+
+.layout {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.toolbar {
+    background: lightgray;
+    padding: 5px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+.toolbar-buttons {
+    padding: 5px 0;
+    display: flex;
+}
+
+.toolbar-buttons>button {
+    flex: 1;
+}
+
+.toolbar-selected-element div:not(:first-child) {
+    margin-top: 5px;
+}
+
+.toolbar-legend {
+    border: 1px solid black;
+    padding: 4px;
+    background: white;
+}
+
+.toolbar-legend-item {
+    display: inline-block;
+    border: 1px solid black;
+    padding: 5px 15px;
+}
+
+[widget],
+.toolbar-legend-item,
+.toolbar-log-item {
+    --status-color: var(--status-color-default);
+    background-color: var(--status-color);
+}
+
+[status="loading"] {
+    --status-color: var(--status-color-loading);
+}
+
+[status="initializing"] {
+    --status-color: var(--status-color-initializing);
+}
+
+[status="error"] {
+    --status-color: var(--status-color-error);
+}
+
+[status="success"] {
+    --status-color: var(--status-color-success);
+}
+
+[status="selected"] {
+    --status-color: var(--shadow-color-selected);
+}
+
+.toolbar-selected-element {
+    border: 1px solid black;
+    padding: 4px;
+    background: white;
+    margin-top: 5px;
+}
+
+.toolbar-log {
+    flex: 1;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 4px;
+    background: white;
+    margin-top: 5px;
+}
+
+.toolbar-log-content {
+    flex: 1;
+    overflow: auto;
+}
+
+.toolbar-log-item {
+    padding: 2px 3px;
+}
+
+.toolbar-log-item+.toolbar-log-item {
+    margin-top: 3px;
+}
+
+.toolbar-log-error-list {
+    word-break: break-all;
+}
+
+.content {
+    overflow: auto;
+}

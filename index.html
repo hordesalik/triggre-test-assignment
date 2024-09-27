@@ -1,0 +1,96 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="./index.css" />
+</head>
+
+<body>
+    <div class="layout">
+        <div class="toolbar">
+            <div class="toolbar-buttons">
+                <button id="btnInit" type="button">Init</button>
+                <button id="btnDestroy" type="button">Destroy</button>
+                <button id="btnDone" type="button">Done</button>
+                <button id="btnFail" type="button">Fail</button>
+            </div>
+
+            <div class="toolbar-legend">
+                <div>
+                    <strong>Color legend:</strong>
+                </div>
+
+                <div>
+                    <span class="toolbar-legend-item" status="loading"></span> Loading
+                </div>
+
+                <div>
+                    <span class="toolbar-legend-item" status="initializing"></span> Initializing
+                </div>
+
+                <div>
+                    <span class="toolbar-legend-item" status="error"></span> Error
+                </div>
+
+                <div>
+                    <span class="toolbar-legend-item" status="success"></span> Success
+                </div>
+
+                <div>
+                    <span class="toolbar-legend-item" status="selected"></span> Selected
+                </div>
+            </div>
+
+            <div class="toolbar-selected-element">
+                <div>
+                    <strong>Selected element</strong>
+                </div>
+
+                <div id="elementInfo" class="toolbar-selected-element-render"></div>
+            </div>
+
+            <div class="toolbar-log">
+                <div>
+                    <strong>Init Log</strong>
+                </div>
+
+                <div id="logContent" class="toolbar-log-content"></div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div id="root" class="root">
+                Root Element
+
+                <div widget="widgets/a">
+                    Widget A
+                    <div widget="widgets/b">Widget B</div>
+                    <div>Empty</div>
+                    <div widget="widgets/non-existing-widget">
+                        Non Existing Widget, failed to initialize
+                        <div widget="widgets/d">Widget D, should not be reached</div>
+                    </div>
+                </div>
+                <div>Empty</div>
+                <div widget="widgets/c">C Widget</div>
+                <div widget="widgets/dynamic">Dynamic Widget, to be loaded...</div>
+                <div widget="widgets/delayed">Delayed widget, initialized in a second</div>
+                <div widget="widgets/delayed-no-children-init">
+                    Delayed widget, children are not get initialized
+                    <div widget="widgets/a">Widget A</div>
+                    <div widget="widgets/b">Widget B</div>
+                    <div widget="widgets/c">Widget C</div>
+                </div>
+                <div widget="widgets/a">
+                    Widget With User Controlled children
+                    <div widget="widgets/user-controlled" id="uc1">User Controlled 1</div>
+                    <div widget="widgets/user-controlled" id="uc2">User Controlled 2</div>
+                    <div widget="widgets/user-controlled" id="uc3">User Controlled 3</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./index.js" async type="module"></script>
+</body>
+
+</html>

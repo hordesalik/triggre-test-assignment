@@ -1,0 +1,19 @@
+{
+  "name": "xlib",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "X.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jsdom": "^25.0.1"
+  }
+}
